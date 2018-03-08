@@ -1,0 +1,57 @@
+group 'ru.ponkin'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "ru.ponkin.billing.Service"
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    restEasyVersion = '3.5.0.Final'
+    guiceVersion = '4.2.0'
+    hibernateVersion = '5.2.14.Final'
+    jettyVErsion = '9.4.3.v20170317'
+    slf4jVersion = '1.7.25'
+}
+
+dependencies {
+    compile group: 'org.jboss.resteasy', name: 'resteasy-jaxrs', version: restEasyVersion
+    compile group: 'org.jboss.resteasy', name: 'resteasy-jackson2-provider', version: restEasyVersion
+    compile group: 'org.jboss.resteasy', name: 'resteasy-servlet-initializer', version: restEasyVersion
+    compile group: 'org.jboss.resteasy', name: 'resteasy-guice', version: restEasyVersion
+
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.9.4'
+
+    compile group: 'com.google.inject', name: 'guice', version: guiceVersion
+    compile group: 'com.google.inject.extensions', name: 'guice-servlet', version: guiceVersion
+    compile group: 'com.google.inject.extensions', name: 'guice-multibindings', version: guiceVersion
+    compile group: 'com.google.inject.extensions', name: 'guice-persist', version: guiceVersion
+
+    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.2.Final'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: hibernateVersion
+    compile group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion
+    compile group: 'org.hibernate', name: 'hibernate-hikaricp', version: hibernateVersion
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '2.7.8'
+    compile group: 'org.hsqldb', name: 'hsqldb', version: '2.4.0'
+
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: jettyVErsion
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: jettyVErsion
+    compile group: 'org.eclipse.jetty', name: 'jetty-util', version: jettyVErsion
+    compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: jettyVErsion
+
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    compile group: 'org.slf4j', name: 'log4j-over-slf4j', version: slf4jVersion
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: slf4jVersion
+    compile group: 'org.slf4j', name: 'jul-to-slf4j', version: slf4jVersion
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.easymock', name: 'easymock', version: '3.5.1'
+}
